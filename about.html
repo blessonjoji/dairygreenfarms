@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Dairy Green Farms</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: url('assets/background.jpg') center/cover no-repeat;
+      padding: 2rem;
+      position: relative;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 420px;
+      border-radius: 8px;
+    }
+    .overlay h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+    }
+    .overlay p1 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+    .top-nav {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      font-weight: bold;
+    }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .top-nav a:hover {
+      color: #ffffff;
+    }
+    main {
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .about-section h2,
+    .core-values h2 {
+      text-align: center;
+      color: #1b4332;
+    }
+    .about-container p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+    .mission-vision .mv-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .mv-block {
+      background: #e9f5ec;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .mv-block h3 {
+      color: #2d6a4f;
+    }
+    .core-values .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .value-card i {
+      font-size: 2rem;
+      color: #52b788;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background: #d4f4d4;
+      color: #1b4332;
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-contacts a {
+      color: #2d6a4f;
+      text-decoration: none;
+    }
+    .footer-contacts a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="overlay">
+      <h1> Dairy Green Farms</h1>
+      <p1>Fresh. Honest. Farm-grown. Just like family.</p1>
+      <nav class="top-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#contact"><i class="fas fa-phone"></i> Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="about-section">
+      <h2>Our Story</h2>
+      <div class="about-container">
+        <p>
+          Dairy Green Farms began as a humble family initiative with a heartfelt vision: to provide our local community with fresh, chemical-free milk and farm products. What started with just a few cows and a passion for natural living has blossomed into a thriving, trusted farm — deeply rooted in values of honesty, sustainability, and love.
+        </p>
+        <p>
+          From our earliest days, we understood what people were truly looking for — not mass-produced goods, but honest-to-goodness, farm-fresh nutrition they could rely on. Over the years, we expanded our offerings organically, guided by what our land could yield and what our animals could give. Today, our selection includes pure cow milk, ghee, curd, natural cow dung manure, fresh vegetables, and nutrient-rich country hen and duck eggs — all nurtured in harmony with nature.
+        </p>
+      </div>
+    </section>
+
+    <section class="mission-vision">
+      <div class="mv-wrapper">
+        <div class="mv-block">
+          <h3>Our Mission</h3>
+          <p>
+            To serve people with love, integrity, and uncompromised quality — just as we would serve our own family. We aim to reconnect people with food that is not only nourishing but also transparent in its origin.
+          </p>
+        </div>
+        <div class="mv-block">
+          <h3>Our Vision</h3>
+          <p>
+            To become a leading symbol of natural farming and ethical produce, inspiring communities to choose health and sustainability through local and honest food systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="core-values">
+      <h2>Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-leaf"></i>
+          <h4>Sustainability</h4>
+          <p>We nurture the soil and care for animals to protect future generations.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-heart"></i>
+          <h4>Love & Family</h4>
+          <p>Every product is made with care, just like we’d offer to our own loved ones.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-balance-scale"></i>
+          <h4>Integrity</h4>
+          <p>We believe in full transparency — no chemicals, no shortcuts, only truth.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-contacts">
+      <p>
+        📞 Call: <a href="tel:9567649770">9567649770</a><br />
+        💬 WhatsApp: <a href="https://wa.me/9447819597" target="_blank">9447819597</a><br />
+        📧 Email: <a href="mailto:dairygreenfarms@gmail.com">dairygreenfarms@gmail.com</a>
+      </p>
+    </div>
+    <p class="copyright">
+      © 2025 Dairy Green Farms. All rights reserved.
+    </p>
+  </footer>
+</body>
+</html>

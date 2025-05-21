@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dairy Green Farms - Gallery</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    header {
+      background: url('assets/background.jpg') center/cover no-repeat;
+      padding: 2rem;
+      position: relative;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 420px;
+      border-radius: 8px;
+    }
+    .overlay h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+    }
+    .overlay p1 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+    .top-nav {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      font-weight: bold;
+    }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .top-nav a:hover,
+    .top-nav .active {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="overlay">
+      <h1>Dairy Green Farms</h1>
+      <p1>Fresh. Honest. Farm-grown. Just like family.</p1>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <nav class="top-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#contact"><i class="fas fa-phone"></i> Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="assets/gallery/photo1.jpg" alt="Farm Photo 1" class="gallery-img" />
+        <img src="assets/gallery/photo2.jpg" alt="Farm Photo 2" class="gallery-img" />
+        <img src="assets/gallery/photo3.jpg" alt="Farm Photo 3" class="gallery-img" />
+        <img src="assets/gallery/photo4.jpg" alt="Farm Photo 4" class="gallery-img" />
+        <img src="assets/gallery/photo5.jpg" alt="Farm Photo 5" class="gallery-img" />
+        <img src="assets/gallery/photo6.jpg" alt="Farm Photo 6" class="gallery-img" />
+        <img src="assets/gallery/photo7.jpg" alt="Farm Photo 7" class="gallery-img" />
+        <!-- Add more images as needed -->
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Enlarged View" id="lightbox-img" />
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-contacts">
+      <p>
+        📞 Call: <a href="tel:9567649770">9567649770</a><br />
+        💬 WhatsApp: <a href="https://wa.me/9447819597" target="_blank">9447819597</a><br />
+        📧 Email: <a href="mailto:dairygreenfarms@gmail.com">dairygreenfarms@gmail.com</a>
+      </p>
+    </div>
+    <p class="copyright">
+      © 2025 Dairy Green Farms. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryImages = document.querySelectorAll(".gallery-img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      galleryImages.forEach(img => {
+        img.addEventListener("click", () => {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+        });
+      });
+
+      lightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      });
+    });
+  </script>
+</body>
+</html>

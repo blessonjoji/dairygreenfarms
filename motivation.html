@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feel Inspired</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+
+      /* 🔽 Replace with your custom background image */
+      background: url('assets/motivation/motivation-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .motivation-container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #2e7d32;
+      animation: fadeInText 2s ease;
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .subtext {
+      font-size: 1em;
+      color: #666;
+      margin-top: 10px;
+      animation: fadeIn 2.4s ease;
+    }
+
+    .go-main {
+      display: inline-block;
+      background: linear-gradient(135deg, #43a047, #66bb6a);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1em;
+      text-decoration: none;
+      margin-top: 20px;
+      box-shadow: 0 8px 20px rgba(67, 160, 71, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .go-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(67, 160, 71, 0.4);
+    }
+
+    .footer-brand {
+      margin-top: 30px;
+      font-size: 0.95em;
+      color: #444;
+      font-weight: 600;
+      animation: fadeIn 2.2s ease;
+    }
+
+    .sub-info {
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 6px;
+      animation: fadeIn 2.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="motivation-container">
+    <h1 id="motivational-message">Loading inspiration...</h1>
+    <a href="index.html" class="go-main">Explore Our Farm</a>
+    <p class="footer-brand">An initiative by <strong>Dairy Green Farms</strong></p>
+    <p class="sub-info">We specialize in milk products, fertilizers, cow dung, and more.</p>
+  </div>
+
+  <script>
+    const messages = [
+      "Maybe today was tough, but tomorrow holds promise.",
+      "You're allowed to rest. You're doing your best.",
+      "Not every day has to be perfect. You showed up — that's enough.",
+      "Even clouds can't hide the sun forever. Keep going.",
+      "You’re not alone in feeling this way. Brighter days are ahead.",
+      "It’s okay to feel off. Just know you’re not stuck here.",
+      "You’ve made it through 100% of your hardest days so far.",
+      "Some chapters are heavy, but the story is still beautiful.",
+      "Breathe. Reset. You’re not behind — you’re on your path.",
+      "You might not see it now, but you're growing in the quiet.",
+      "Even if today felt small, it still mattered.",
+      "Healing isn’t linear. Be gentle with yourself.",
+      "You’re not where you want to be yet — and that’s perfectly okay.",
+      "Every sunrise is a second chance.",
+      "Let today be what it is, and trust that tomorrow brings more."
+    ];
+    const display = document.getElementById("motivational-message");
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    display.textContent = randomMessage;
+  </script>
+</body>
+</html>
