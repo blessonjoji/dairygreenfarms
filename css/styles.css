@@ -140,7 +140,7 @@ body.motivation-bg {
   color: white;
 }
 
-/* Timeline Section */
+/* === Timeline Section === */
 #timeline {
   position: relative;
   padding: 60px 20px;
@@ -154,21 +154,25 @@ body.motivation-bg {
   margin-bottom: 40px;
   color: #111;
 }
+
 .timeline-container {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 600px) {
-  .timeline-container {
-    flex-direction: column;
-    gap: 25px;
-  }
+.timeline-container::-webkit-scrollbar {
+  height: 8px;
 }
 
-
+.timeline-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 80, 0, 0.5);
+  border-radius: 4px;
+}
 
 .milestone {
   background: rgba(255, 255, 255, 0.1);
@@ -176,22 +180,44 @@ body.motivation-bg {
   padding: 15px;
   width: 150px;
   cursor: pointer;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: center;
+  scroll-snap-align: center;
+
+  /* Enhancement: subtle hover shadow & slight brightness */
+  will-change: transform, box-shadow;
+}
+
+.milestone:hover {
+  box-shadow: 0 8px 20px rgba(0, 100, 0, 0.35);
+  filter: brightness(1.05);
+}
+
+.milestone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .milestone img {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.milestone:hover img {
+  transform: scale(1.1);
 }
 
 .milestone span {
   font-size: 1.2em;
   color: #111;
   font-weight: bold;
+  margin-top: 4px;
 }
 
 #milestone-detail {
@@ -224,6 +250,7 @@ body.motivation-bg {
 .milestone.active {
   transform: scale(1.05);
   z-index: 2;
+  box-shadow: 0 10px 40px rgba(0, 100, 0, 0.5);
 }
 
 .milestone.faded {
@@ -273,25 +300,7 @@ p1 {
   color: white;
 }
 
-/* NAVIGATION LINKS */
-.top-nav {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-}
-/* For Going back to initial google type nav bar
-.top-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.top-nav a:hover {
-  text-decoration: underline;
-}
-*/
+/* === Top Navigation === */
 .top-nav {
   position: absolute;
   top: 20px;
@@ -303,12 +312,12 @@ p1 {
 
 .top-nav a {
   display: inline-block;
-  padding: 6px 12px; /* reduce button size */
-  font-size: 0.85rem; /* smaller text */
+  padding: 6px 12px;
+  font-size: 0.85rem;
   margin: 0;
   color: white;
   text-decoration: none;
-  background-color: rgba(140, 140, 140, 0.5); /* dark green semi-transparent */
+  background-color: rgba(140, 140, 140, 0.5);
   border-radius: 15px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -318,9 +327,7 @@ p1 {
   transform: scale(1.05);
 }
 
-
-
-/* ===== Gallery Grid ===== */
+/* === Gallery Grid === */
 #gallery {
   padding: 80px 10%;
   background: #f6fff5;
@@ -349,7 +356,7 @@ p1 {
   box-shadow: 0 8px 25px rgba(0,100,0,0.2);
 }
 
-/* ===== Lightbox Viewer ===== */
+/* === Lightbox Viewer === */
 .lightbox {
   display: none;
   position: fixed;
@@ -371,82 +378,82 @@ p1 {
   display: flex;
 }
 
-/* Responsive tweaks preserving all current styles */
+/* === Responsive Styles === */
 @media (max-width: 600px) {
   header {
     padding: 60px 15px;
   }
+
   header .overlay {
     padding: 20px;
   }
+
   header h1 {
     font-size: 2.5em;
   }
+
   p1 {
     font-size: 1em;
   }
+
   .top-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  position: static;
-  margin-top: 15px;
-  text-align: center;
-}
-.top-nav a {
-  display: inline-block;
-  margin: 5px 8px;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: static;
+    margin-top: 15px;
+    text-align: center;
   }
+
+  .top-nav a {
+    margin: 5px 8px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
   .product-scroll {
     padding: 30px 5%;
   }
+
   .product-card {
     width: 150px;
   }
+
   #timeline {
     padding: 40px 10px;
   }
+
   #timeline h2 {
     font-size: 1.8em;
   }
+
   .timeline-container {
     flex-direction: column;
     gap: 25px;
   }
+
   .milestone {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
   }
+
   footer {
     padding: 15px 10px;
     font-size: 0.95em;
   }
 }
-@media (max-width: 600px) {
-  .timeline-container {
-    flex-direction: column;
-    gap: 25px;
-  }
-}.timeline-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+
+.milestone-inner-detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  padding-top: 10px;
+  color: #000;
 }
 
-.timeline-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-.timeline-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 80, 0, 0.5);
-  border-radius: 4px;
+.milestone-inner-detail.visible {
+  opacity: 1;
 }
