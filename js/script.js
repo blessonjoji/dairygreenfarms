@@ -1,41 +1,59 @@
 // Reserved for future site-wide scripts
+
 const milestones = document.querySelectorAll(".milestone");
-const detailBox = document.getElementById("milestone-detail");
-const contentBox = document.getElementById("milestone-content");
 
 const milestoneData = {
-  "2000": `<b>2000</b><br>Started as a small family farm behind our home. From early 2000s, people began trusting us with our pure, farm-fresh milk.`,
-  "2020": `<b>2020</b><br>By the time of the COVID-19 pandemic, we expanded into a small-scale business. The trust and demand grew rapidly.`,
-  "2024": `<b>2024</b><br>We specialized in dried cow dung manure and started small-scale vermicompost. Quality and organic standards became our trademark.`,
-  "Future": `<b>Future</b><br>We’re working toward large-scale milk production along with expanding our vegetable and manure lines, while staying rooted in honesty and sustainability.`
+  "2000": `Started as a small family farm behind our home. From early 2000s, people began trusting us with our pure, farm-fresh milk.`,
+  "2020": `By the time of the COVID-19 pandemic, we expanded into a small-scale business. The trust and demand grew rapidly.`,
+  "2024": `We specialized in dried cow dung manure and started small-scale vermicompost. Quality and organic standards became our trademark.`,
+  "Future": `We’re working toward large-scale milk production along with expanding our vegetable and manure lines, while staying rooted in honesty and sustainability.`
 };
 
 milestones.forEach(ms => {
-  ms.addEventListener("click", () => {
-    const year = ms.dataset.year;
-    contentBox.innerHTML = milestoneData[year];
-    detailBox.style.display = "block";
+  const year = ms.dataset.year;
 
+  // Create detail container inside each milestone
+  const detail = document.createElement('div');
+  detail.className = 'milestone-inner-detail';
+  detail.innerHTML = milestoneData[year] || '';
+  ms.appendChild(detail);
+
+  // Click handler
+  ms.addEventListener("click", () => {
+    const isActive = ms.classList.contains("active");
+
+    // Reset all milestones
     milestones.forEach(m => {
-      m.classList.remove("active");
-      m.classList.add("faded");
+      m.classList.remove("active", "faded");
+      m.querySelector(".milestone-inner-detail").style.maxHeight = null;
+      m.querySelector(".milestone-inner-detail").classList.remove("visible");
     });
-    ms.classList.add("active");
+
+    if (!isActive) {
+      ms.classList.add("active");
+      milestones.forEach(m => {
+        if (m !== ms) m.classList.add("faded");
+      });
+      const inner = ms.querySelector(".milestone-inner-detail");
+      inner.classList.add("visible");
+      inner.style.maxHeight = inner.scrollHeight + "px";
+    }
   });
 });
 
-// Close when clicked outside
+// Click outside to collapse
 document.addEventListener("click", e => {
   const isMilestone = e.target.closest(".milestone");
-  const isDetail = e.target.closest("#milestone-detail");
-
-  if (!isMilestone && !isDetail) {
-    detailBox.style.display = "none";
+  if (!isMilestone) {
     milestones.forEach(m => {
       m.classList.remove("active", "faded");
+      const inner = m.querySelector(".milestone-inner-detail");
+      inner.style.maxHeight = null;
+      inner.classList.remove("visible");
     });
   }
 });
+
 // Lightbox Image Viewer
 document.addEventListener('DOMContentLoaded', () => {
   const galleryImages = document.querySelectorAll('.gallery-img');
@@ -55,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 // Contact Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('contactModal');
@@ -76,4 +95,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
