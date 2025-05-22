@@ -457,3 +457,18 @@ p1 {
 .milestone-inner-detail.visible {
   opacity: 1;
 }
+.milestone-inner-detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  padding-top: 8px;
+  color: #444;              /* Softer, muted text */
+  font-size: 13px;          /* Smaller than year */
+  line-height: 1.5;
+  font-weight: 400;         /* Regular weight */
+  text-align: left;
+}
+.milestone-inner-detail.visible {
+  opacity: 1;
+}
